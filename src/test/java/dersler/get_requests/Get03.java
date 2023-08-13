@@ -1,4 +1,4 @@
-package get_requests;
+package dersler.get_requests;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
