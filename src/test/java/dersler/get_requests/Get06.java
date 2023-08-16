@@ -5,6 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
+import org.testng.asserts.SoftAssert;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.*;
@@ -60,9 +61,10 @@ public class Get06 extends HerokuAppBaseUrl {
                         "depositpaid",equalTo(true),
                         "bookingdates.checkin",equalTo("2018-01-01"),
                         "bookingdates.checkout",equalTo("2019-01-01"),
-                        "additionalneeds",equalTo("Breakfast"));
+                        "additionalneeds",equalTo("Lunch"));
 
 
+        //response da sadece body'yi degil header'i daki verileri de hem soft hem hard assertion ile test edebiliriz
 
         //2.Yol;
         JsonPath json = response.jsonPath(); //response u jsonPath() methodu kullanarak JsonPath data cesidine dönüstürdük.
@@ -74,8 +76,21 @@ public class Get06 extends HerokuAppBaseUrl {
         assertTrue(json.getBoolean("depositpaid"));
         assertEquals("2018-01-01",json.getString("bookingdates.checkin"));
         assertEquals("2019-01-01",json.getString("bookingdates.checkout"));
-        assertEquals("Breakfast",json.getString("additionalneeds"));
+        assertEquals("Lunch",json.getString("additionalneeds"));
+        //jsonPath() de datamizi String'e Int'e List'e vs. cevirip ilerde get islemlerinde ve dogrulama yaparken kullanabiliriz
 
+        //3.Yol(softAssertion)
+        //Soft asserts TestNg ile gelen bir ozellik oldugu icin TestNg pom'a yuklenmeli
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(json.getString("firstname"),"John");
+        softAssert.assertEquals(json.getString("lastname"),"Smith");
+        softAssert.assertEquals(json.getInt("totalprice"),111);
+        softAssert.assertTrue(json.getBoolean("depositpaid"));
+        softAssert.assertEquals(json.getString("bookingdates.checkin"),"2018-01-01");
+        softAssert.assertEquals(json.getString("bookingdates.checkout"),"2019-01-01");
+        softAssert.assertEquals(json.getString("additionalneeds"),"Lunch");
+
+        softAssert.assertAll();
 
 
     }

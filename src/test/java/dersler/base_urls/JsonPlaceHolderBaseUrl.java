@@ -25,7 +25,10 @@ public class JsonPlaceHolderBaseUrl {
 
     @Before
     public void setUp() throws Exception {
-        spec = new RequestSpecBuilder().setAccept(ContentType.JSON).setBaseUri("https://jsonplaceholder.typicode.com").build();
+        spec = new RequestSpecBuilder()
+                .setBaseUri("https://jsonplaceholder.typicode.com")
+                .setContentType(ContentType.JSON)
+                .build();
 
     }
 
