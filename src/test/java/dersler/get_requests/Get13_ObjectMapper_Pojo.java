@@ -55,9 +55,4 @@ public class Get13_ObjectMapper_Pojo extends JsonPlaceHolderBaseUrl {
     }
 
 
-
-
-
-
-
     }
