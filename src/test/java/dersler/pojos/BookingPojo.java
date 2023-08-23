@@ -83,3 +83,7 @@ public class BookingPojo {
     }
 }
 
+//response as methodu sadece json ve java datalari arasinda donusum yapmaz.
+//jackson-databind ve jackson.datatype dependency leri ile birlikte response as() methodu Integer variable i String'e,
+// String'i Local Date'e gibi farkli veri tiplerini birbirine cevirebilmemize imkan tanir
+
