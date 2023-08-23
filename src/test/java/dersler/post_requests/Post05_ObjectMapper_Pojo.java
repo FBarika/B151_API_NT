@@ -60,7 +60,15 @@ public class Post05_ObjectMapper_Pojo extends JsonPlaceHolderBaseUrl {
         assertEquals(expectedData.getTitle(),actualData.getTitle());
         assertEquals(expectedData.getCompleted(),actualData.getCompleted());
 
-
-
     }
+
+    /*
+    Suana kadar Api de 5 Assertion methodu gorduk
+    Hamcrest Matchers
+    Json Path - groovy language
+    Response as -Map
+    Response as -Pojo
+    Object Mapper
+
+     */
 }

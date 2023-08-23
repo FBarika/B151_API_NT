@@ -1,0 +1,9 @@
+Ögrendigimiz Assertion Yöntemleri
+
+1-Hamcrest Matchers  (Get02,Get03)
+2-jsonPath()   (Get06)
+3-as() "Map"  (Get09)
+4-as() "Pojo"  (get12)
+5- ObjectMapper.readValue() "Map" (Get13)
+6- ObjectMapper.readValue() "Pojo" (Get13)
+

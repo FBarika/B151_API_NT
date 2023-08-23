@@ -54,6 +54,7 @@ public class Post05_ObjectMapper_Map extends JsonPlaceHolderBaseUrl {
 
         //Do Assertion
         ObjectMapper objectMapper = new ObjectMapper();
+        //ObjectMapper’in bize sagladigi bir avantaj, icine koydugumuz bir String’i istedigimiz formata cevirir.
         Map<String,Object> actualData = objectMapper.readValue(response.asString(), HashMap.class);
        // Map<String,Object> actualData2 = response.as(HashMap.class); --> Önceden actual datayi bu sekilde olusturuyorduk.
         System.out.println("actualData = " + actualData);
