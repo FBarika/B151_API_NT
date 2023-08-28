@@ -10,6 +10,7 @@ import org.junit.Test;
 import static dersler.herokuapp_smoketest.C01_CreateBooking.bookingid;
 import static dersler.utils.ObjectMapperUtils.convertJsonToJava;
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class C03_UpdateBooking extends HerokuAppBaseUrl {
 
@@ -58,32 +59,20 @@ public class C03_UpdateBooking extends HerokuAppBaseUrl {
         BookingPojo expectedData = new BookingPojo("Jim","Brown",111,true,bookingDates,"Breakfast");
 
         //Send the request and get the response
-        Response response = given(spec).header("Cookie","token=a4872e12a86d89b").body(expectedData).when().put("{first}/{second}");
+        Response response = given(spec).body(expectedData).when().put("{first}/{second}");
 
         //Do Assertion
         BookingPojo actualData = convertJsonToJava(response.asString(), BookingPojo.class);
+        System.out.println("actualData = " + actualData);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        assertEquals(200,response.statusCode());
+        assertEquals(expectedData.getFirstname(),actualData.getFirstname());
+        assertEquals(expectedData.getLastname(),actualData.getLastname());
+        assertEquals(expectedData.getTotalprice(),actualData.getTotalprice());
+        assertEquals(expectedData.getDepositpaid(),actualData.getDepositpaid());
+        assertEquals(expectedData.getBookingdates().getCheckin(),actualData.getBookingdates().getCheckin());
+        assertEquals(expectedData.getBookingdates().getCheckout(),actualData.getBookingdates().getCheckout());
+        assertEquals(expectedData.getAdditionalneeds(),actualData.getAdditionalneeds());
 
 
 
