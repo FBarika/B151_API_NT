@@ -16,7 +16,7 @@ public class GmiBankBaseUrl {
         spec = new RequestSpecBuilder()
                 .setBaseUri("https://gmibank.com")
                 .setContentType(ContentType.JSON)
-                .addHeader("Authorization","Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXJrX3R3YWluIiwiYXV0aCI6IlJPTEVfQURNSU4sUk9MRV9NQU5BR0VSIiwiZXhwIjoxNjkzMzg4MTU3fQ.150AW4RSZvIdQwqaiIuFyyRlK-f76d5x6nyvzFE-juxIF0rm_lM4RGUBW-3AuyUKYVIv3e6pd1hzncfsyZy6Sg")
+                .addHeader("Authorization","Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXJrX3R3YWluIiwiYXV0aCI6IlJPTEVfQURNSU4sUk9MRV9NQU5BR0VSIiwiZXhwIjoxNjkzNzc5Nzg3fQ.hTW9OMaFxxLYxcYpb_0LAh1uG47pfg-ru8PacrlbXs6ku43EtGmvAOdh0ETqBDI5BM9pozyTNq-0MwkPwm0aUw")
                 .build();
 
     }

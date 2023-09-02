@@ -1,8 +1,11 @@
 package dersler.pojos.gmi_bank;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 import java.io.Serializable;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CountryPojo implements Serializable {
 	private String name;
 	private List<StatesPojo> states;
